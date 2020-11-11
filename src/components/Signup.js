@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import _ from 'lodash';
 
 import AuthContext from '../contexts/AuthContext';
+import { SIGN_UP } from '../constants/constants';
 
 const StyledWrap = styled.div`
     margin-top: 8rem;
@@ -75,7 +76,7 @@ const Signup = () => {
     }
 
     try {
-      const message = await fetch('http://localhost:5000/signup', {
+      const message = await fetch(SIGN_UP, {
         method: 'POST',
         mode: 'cors',
         credentials: 'include',

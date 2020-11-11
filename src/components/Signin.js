@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button';
 import _ from 'lodash';
 
 import AuthContext from '../contexts/AuthContext';
+import { SIGN_IN } from '../constants/constants';
+
 
 const StyledWrap = styled.div`
     margin-top: 8rem;
@@ -58,7 +60,7 @@ const SignIn = ({ firebase, history }) => {
       password
     }
 
-    const res = await fetch('http://localhost:5000/signIn', {
+    const res = await fetch(SIGN_IN, {
       method: 'POST',
       mode: 'cors',
       credentials: 'include',
