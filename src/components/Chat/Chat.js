@@ -183,8 +183,6 @@ const Chat = ({ history, match }) => {
     }
   }
 
-  console.log(error)
-
   return (
     <div>
       <div className="chat">
