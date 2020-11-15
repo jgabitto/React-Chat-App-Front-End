@@ -22,9 +22,9 @@ const NavbarComponent = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link as={Link} to={ROUTES.HOME}>Home</Nav.Link>
+            {/* <Nav.Link as={Link} to={ROUTES.HOME}>Home</Nav.Link> */}
             <Nav.Link as={Link} to={ROUTES.JOIN_CHAT}>Chat</Nav.Link>
-            <Nav.Link as={Link} to={ROUTES.ACCOUNT}>Account</Nav.Link>
+            {/* <Nav.Link as={Link} to={ROUTES.ACCOUNT}>Account</Nav.Link> */}
             {/* <SignOut /> */}
           </Nav>
         </Navbar.Collapse>
@@ -33,38 +33,12 @@ const NavbarComponent = () => {
   }
 
   const NavigationNonAuth = () => {
-    // return (
-    //   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    //     <div class="container">
-    //       <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
-    //       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-    //         Menu
-    //                 <i class="fas fa-bars"></i>
-    //       </button>
-    //       <div class="collapse navbar-collapse" id="navbarResponsive">
-    //         <ul class="navbar-nav ml-auto">
-    //           <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-    //           <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Projects</a></li>
-    //           <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">Contact</a></li>
-    //         </ul>
-    //       </div>
-    //     </div>
-    //   </nav>
-    // );
-
-    // style={{ backgroundColor: "#131718" }}
     return (
       <Navbar className={scroll ? "fixed-top scrolled page-navbar" : "fixed-top page-navbar"} expand="lg">
         <Navbar.Brand className="brand">
           <Nav.Link as={Link} to="/"><strong>Chat</strong></Nav.Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        {/* <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
-            <Nav.Link as={Link} to="/signin">Sign In</Nav.Link>
-            <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
-          </Nav>
-        </Navbar.Collapse> */}
       </Navbar>
     );
   }

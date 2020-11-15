@@ -30,8 +30,8 @@ const App = () => {
             <Route path={ROUTES.LANDING} exact component={Landing} />
             <PublicRoute path={ROUTES.SIGN_IN} exact component={Signin} />
             <PublicRoute path={ROUTES.SIGN_UP} exact component={Signup} />
-            <PrivateRoute path={ROUTES.HOME} exact component={Home} />
-            <PrivateRoute path={ROUTES.ACCOUNT} exact component={Account} />
+            {/* <PrivateRoute path={ROUTES.HOME} exact component={Home} />
+            <PrivateRoute path={ROUTES.ACCOUNT} exact component={Account} /> */}
             <PrivateRoute path={ROUTES.JOIN_CHAT} exact component={JoinChat} />
             <PrivateRoute path={ROUTES.CHAT} exact component={Chat} />
             <Route path="*" render={() => <Redirect to="/" />} />
