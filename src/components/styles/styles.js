@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 
-import computer from '../../img/computer2.jpg';
+import computerPic from '../../img/computer2.jpg';
+import signinPic from '../../img/signin.jpg';
+import signupPic from '../../img/signup.jpg';
 
-export const StyledWrap = styled.div`
+export const StyledWrapLanding = styled.div`
 .masthead {
   position: relative;
   width: 100%;
   height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  background: url(${computer});
+  background: url(${computerPic});
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -43,6 +45,110 @@ export const StyledWrap = styled.div`
   .masthead h1 {
     font-size: 6.5rem;
     line-height: 6.5rem;
+  }
+  .masthead h2 {
+    max-width: 30rem;
+    font-size: 1.25rem;
+  }
+}
+`;
+
+export const StyledWrapSignIn = styled.div`
+label {
+  color: white;
+}
+.masthead {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 35rem;
+  padding: 15rem 0;
+  background: url(${signinPic});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+.masthead h1 {
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  background-color: #E3E2DF;
+  
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+.masthead h2 {
+  max-width: 20rem;
+  font-size: 1rem;
+  color: #EEE2DC;
+}
+@media (min-width: 768px) {
+  .masthead h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+}
+@media (min-width: 992px) {
+  .masthead {
+    height: 100vh;
+    padding: 0;
+  }
+  .masthead h1 {
+    font-size: 6.5rem;
+    line-height: 7.5rem;
+  }
+  .masthead h2 {
+    max-width: 30rem;
+    font-size: 1.25rem;
+  }
+}
+`;
+
+export const StyledWrapSignUp = styled.div`
+label {
+  color: white;
+}
+.masthead {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 35rem;
+  padding: 15rem 0;
+  background: url(${signupPic});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+.masthead h1 {
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  background-color: #E3E2DF;
+  
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+.masthead h2 {
+  max-width: 20rem;
+  font-size: 1rem;
+  color: #EEE2DC;
+}
+@media (min-width: 768px) {
+  .masthead h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+}
+@media (min-width: 992px) {
+  .masthead {
+    height: 100vh;
+    padding: 0;
+  }
+  .masthead h1 {
+    font-size: 4.5rem;
+    line-height: 5.5rem;
   }
   .masthead h2 {
     max-width: 30rem;

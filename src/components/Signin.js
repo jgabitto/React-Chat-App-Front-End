@@ -7,12 +7,13 @@ import _ from 'lodash';
 
 import AuthContext from '../contexts/AuthContext';
 import { SIGN_IN } from '../constants/constants';
+import { StyledWrapSignIn } from './styles/styles';
 
 
-const StyledWrap = styled.div`
-    margin-top: 8rem;
+// const StyledWrap = styled.div`
+//     margin-top: 8rem;
 
-`;
+// `;
 
 const INITIAL_STATE = {
   email: '',
@@ -78,30 +79,56 @@ const SignIn = ({ firebase, history }) => {
     dispatch({ type: e.target.name, payload: { field: e.target.name, value: e.target.value } })
   }
 
-  return (
-    <StyledWrap className="container">
-      <Jumbotron>
-        <h1>Sign In</h1>
-        <Form onSubmit={onSubmit}>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <input className="form-control" name="email" value={email} onChange={onChange} type="email" placeholder="Enter email" />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-          </Form.Text>
-          </Form.Group>
+  // return (
+  //   <StyledWrap className="container">
+  //     <Jumbotron>
+  //       <h1>Sign In</h1>
+  //       <Form onSubmit={onSubmit}>
+  //         <Form.Group controlId="formBasicEmail">
+  //           <Form.Label>Email address</Form.Label>
+  //           <input className="form-control" name="email" value={email} onChange={onChange} type="email" placeholder="Enter email" />
+  //           <Form.Text className="text-muted">
+  //             We'll never share your email with anyone else.
+  //         </Form.Text>
+  //         </Form.Group>
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <input className="form-control" name="password" value={password} onChange={onChange} type="password" placeholder="Password" />
-          </Form.Group>
-          <Button variant="primary" disabled={isInvalid} type="submit">
-            Submit
-      </Button>
-          {error && <p>{error.message}</p>}
-        </Form>
-      </Jumbotron>
-    </StyledWrap>
+  //         <Form.Group controlId="formBasicPassword">
+  //           <Form.Label>Password</Form.Label>
+  //           <input className="form-control" name="password" value={password} onChange={onChange} type="password" placeholder="Password" />
+  //         </Form.Group>
+  //         <Button variant="primary" disabled={isInvalid} type="submit">
+  //           Submit
+  //     </Button>
+  //         {error && <p>{error.message}</p>}
+  //       </Form>
+  //     </Jumbotron>
+  //   </StyledWrap>
+  // )
+  return (
+    <StyledWrapSignIn>
+      <header class="masthead">
+        <div class="container d-flex h-100 align-items-center">
+          <div class="mx-auto text-center">
+            <h1>Sign In</h1>
+            <Form onSubmit={onSubmit}>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <input className="form-control" name="email" value={email} onChange={onChange} type="email" placeholder="Enter email" autocomplete="off" />
+              </Form.Group>
+
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <input className="form-control" name="password" value={password} onChange={onChange} type="password" placeholder="Password" />
+              </Form.Group>
+              <button className="btn btn-outline-light" disabled={isInvalid} type="submit">
+                Submit
+              </button>
+              {error && <p>{error.message}</p>}
+            </Form>
+          </div>
+        </div>
+      </header>
+    </StyledWrapSignIn>
   )
 
 }

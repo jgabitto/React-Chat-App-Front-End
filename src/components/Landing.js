@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { StyledWrap } from './styles/styles';
+import { StyledWrapLanding } from './styles/styles';
 
 const Landing = () => {
   return (
-    <StyledWrap>
+    <StyledWrapLanding>
       <header class="masthead">
         <div class="container d-flex h-100 align-items-center">
           <div class="mx-auto text-center">
@@ -17,7 +17,7 @@ const Landing = () => {
           </div>
         </div>
       </header>
-    </StyledWrap>
+    </StyledWrapLanding>
   )
   // return (
   //   <StyledWrap>

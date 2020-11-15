@@ -8,11 +8,12 @@ import _ from 'lodash';
 
 import AuthContext from '../contexts/AuthContext';
 import { SIGN_UP } from '../constants/constants';
+import { StyledWrapSignUp } from './styles/styles';
 
-const StyledWrap = styled.div`
-    margin-top: 8rem;
+// const StyledWrap = styled.div`
+//     margin-top: 8rem;
 
-`;
+// `;
 
 const INITIAL_STATE = {
   email: '',
@@ -98,34 +99,67 @@ const Signup = () => {
   }
 
   return (
-    <StyledWrap className="container">
-      <Jumbotron>
-        <h1>Sign Up</h1>
-        <Form onSubmit={onSubmit}>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Username</Form.Label>
-            <input className="form-control" name="username" value={username} onChange={onChange} type="text" placeholder="Enter email" />
-          </Form.Group>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <input className="form-control" name="email" value={email} onChange={onChange} type="email" placeholder="Enter email" />
-          </Form.Group>
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <input className="form-control" name="password" value={password} onChange={onChange} type="password" placeholder="Password" />
-          </Form.Group>
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Confirm Password</Form.Label>
-            <input className="form-control" name="passwordTwo" value={passwordTwo} onChange={onChange} type="password" placeholder="Password" />
-          </Form.Group>
-          <Button variant="primary" disabled={isInvalid} type="submit">
-            Submit
-    </Button>
-          {error && <p>{error.message}</p>}
-        </Form>
-      </Jumbotron>
-    </StyledWrap>
+    <StyledWrapSignUp>
+      <header class="masthead">
+        <div class="container d-flex h-100 align-items-center">
+          <div class="mx-auto text-center">
+            <h1>Sign Up</h1>
+            <Form onSubmit={onSubmit}>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Username</Form.Label>
+                <input className="form-control" name="username" value={username} onChange={onChange} type="text" placeholder="Enter username" autocomplete="off" />
+              </Form.Group>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <input className="form-control" name="email" value={email} onChange={onChange} type="email" placeholder="Enter email" autocomplete="off" />
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <input className="form-control" name="password" value={password} onChange={onChange} type="password" placeholder="Password" />
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Confirm Password</Form.Label>
+                <input className="form-control" name="passwordTwo" value={passwordTwo} onChange={onChange} type="password" placeholder="Password" />
+              </Form.Group>
+              <button className="btn btn-outline-light" disabled={isInvalid} type="submit">
+                Submit
+              </button>
+            </Form>
+          </div>
+        </div>
+      </header>
+    </StyledWrapSignUp>
   )
+
+  // return (
+  //   <StyledWrap className="container">
+  //     <Jumbotron>
+  //       <h1>Sign Up</h1>
+  //       <Form onSubmit={onSubmit}>
+  //         <Form.Group controlId="formBasicEmail">
+  //           <Form.Label>Username</Form.Label>
+  //           <input className="form-control" name="username" value={username} onChange={onChange} type="text" placeholder="Enter email" />
+  //         </Form.Group>
+  //         <Form.Group controlId="formBasicEmail">
+  //           <Form.Label>Email address</Form.Label>
+  //           <input className="form-control" name="email" value={email} onChange={onChange} type="email" placeholder="Enter email" />
+  //         </Form.Group>
+  //         <Form.Group controlId="formBasicPassword">
+  //           <Form.Label>Password</Form.Label>
+  //           <input className="form-control" name="password" value={password} onChange={onChange} type="password" placeholder="Password" />
+  //         </Form.Group>
+  //         <Form.Group controlId="formBasicPassword">
+  //           <Form.Label>Confirm Password</Form.Label>
+  //           <input className="form-control" name="passwordTwo" value={passwordTwo} onChange={onChange} type="password" placeholder="Password" />
+  //         </Form.Group>
+  //         <Button variant="primary" disabled={isInvalid} type="submit">
+  //           Submit
+  //   </Button>
+  //         {error && <p>{error.message}</p>}
+  //       </Form>
+  //     </Jumbotron>
+  //   </StyledWrap>
+  // )
 }
 
 export default Signup;

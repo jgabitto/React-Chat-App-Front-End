@@ -83,7 +83,7 @@ const NavbarComponent = () => {
 
   return (
     <StyledNavbar>
-      {authUser ? <NavigationAuth /> : null}
+      {authUser ? <NavigationAuth /> : <NavigationNonAuth />}
     </StyledNavbar>
   )
   // return (
