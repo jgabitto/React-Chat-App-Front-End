@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import _ from 'lodash';
 
 import AuthContext from '../contexts/AuthContext';
-import { SIGN_IN } from '../constants/constants';
 import { StyledWrapSignIn } from './styles/styles';
 
 
@@ -61,7 +60,7 @@ const SignIn = ({ firebase, history }) => {
       password
     }
 
-    const res = await fetch(SIGN_IN, {
+    const res = await fetch(process.env.REACT_APP_SIGN_IN, {
       method: 'POST',
       mode: 'cors',
       credentials: 'include',
@@ -106,14 +105,14 @@ const SignIn = ({ firebase, history }) => {
   // )
   return (
     <StyledWrapSignIn>
-      <header class="masthead">
-        <div class="container d-flex h-100 align-items-center">
-          <div class="mx-auto text-center">
+      <header className="masthead">
+        <div className="container d-flex h-100 align-items-center">
+          <div className="mx-auto text-center">
             <h1>Sign In</h1>
             <Form onSubmit={onSubmit}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <input className="form-control" name="email" value={email} onChange={onChange} type="email" placeholder="Enter email" autocomplete="off" />
+                <input className="form-control" name="email" value={email} onChange={onChange} type="email" placeholder="Enter email" autoComplete="off" />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">

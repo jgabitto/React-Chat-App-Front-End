@@ -7,7 +7,6 @@ import Button from 'react-bootstrap/Button';
 import _ from 'lodash';
 
 import AuthContext from '../contexts/AuthContext';
-import { SIGN_UP } from '../constants/constants';
 import { StyledWrapSignUp } from './styles/styles';
 
 // const StyledWrap = styled.div`
@@ -77,7 +76,7 @@ const Signup = () => {
     }
 
     try {
-      const message = await fetch(SIGN_UP, {
+      const message = await fetch(process.env.REACT_APP_SIGN_UP, {
         method: 'POST',
         mode: 'cors',
         credentials: 'include',
@@ -107,11 +106,11 @@ const Signup = () => {
             <Form onSubmit={onSubmit}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Username</Form.Label>
-                <input className="form-control" name="username" value={username} onChange={onChange} type="text" placeholder="Enter username" autocomplete="off" />
+                <input className="form-control" name="username" value={username} onChange={onChange} type="text" placeholder="Enter username" autoComplete="off" />
               </Form.Group>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <input className="form-control" name="email" value={email} onChange={onChange} type="email" placeholder="Enter email" autocomplete="off" />
+                <input className="form-control" name="email" value={email} onChange={onChange} type="email" placeholder="Enter email" autoComplete="off" />
               </Form.Group>
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>

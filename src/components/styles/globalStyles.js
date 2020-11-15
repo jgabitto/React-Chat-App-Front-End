@@ -87,6 +87,7 @@ button:disabled {
 /* Chat Page Layout */
 
 .chat {
+    margin-top: 100px;
     display: flex;
 }
 

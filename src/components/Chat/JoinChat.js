@@ -1,4 +1,6 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useContext } from 'react';
+
+import LocationContext from '../../contexts/LocationContext';
 
 const INITIAL_STATE = {
   username: '',
@@ -20,9 +22,10 @@ const reducer = (state, action) => {
   }
 }
 
-const JoinChat = ({ history }) => {
+const JoinChat = ({ history, match }) => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
   const { username, room } = state;
+  const [chatLocation, setChatLocation] = useContext(LocationContext);
 
   const onChange = (e) => {
     dispatch({ type: e.target.name, payload: { field: e.target.name, value: e.target.value } })
@@ -37,12 +40,14 @@ const JoinChat = ({ history }) => {
       room
     }
 
+    console.log(history)
+    setChatLocation(history.location)
     history.push(`/chat/username=${username}&room=${room}`)
   }
 
   return (
     <div>
-      <div className="centered-form container">
+      <div className="centered-form">
         <div className="centered-form__box">
           <h1>Join</h1>
           <form onSubmit={onSubmit}>

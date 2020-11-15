@@ -10,17 +10,17 @@ const Landing = () => {
 
   return (
     <StyledWrapLanding>
-      <header class="masthead">
-        <div class="container d-flex h-100 align-items-center">
-          {!authUser ? <div class="mx-auto text-center">
-            <h1 class="mx-auto my-0">Web Chat App</h1>
-            <h2 class="mx-auto mt-2 mb-5">Create a chat room or join an exisiting one. Register to start chatting today!</h2>
+      <header className="masthead">
+        <div className="container d-flex h-100 align-items-center">
+          {!authUser ? <div className="mx-auto text-center">
+            <h1 className="mx-auto my-0">Web Chat App</h1>
+            <h2 className="mx-auto mt-2 mb-5">Create a chat room or join an exisiting one. Register to start chatting today!</h2>
             <Link to="/signin" className="btn btn-outline-light js-scroll-trigger mr-1">Sign In</Link>
             <Link to="/signup" className="btn btn-outline-light js-scroll-trigger ml-1" variant="outline-dark">Sign Up</Link>
           </div>
-            : <div class="mx-auto text-center">
-              <h1 class="mx-auto my-0">Web Chat App</h1>
-              <h2 class="mx-auto mt-2 mb-5">Create a chat room or join an exisiting one. Register to start chatting today!</h2>
+            : <div className="mx-auto text-center">
+              <h1 className="mx-auto my-0">Web Chat App</h1>
+              <h2 className="mx-auto mt-2 mb-5">Create a chat room or join an exisiting one. Register to start chatting today!</h2>
             </div>}
         </div>
       </header>
