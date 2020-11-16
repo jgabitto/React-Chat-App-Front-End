@@ -27,11 +27,11 @@ export const AuthStore = ({ children }) => {
   const [cookies, setCookie] = useCookies(['auth_token']);
   const [authUser, setAuthUser] = useState(cookies['auth_token']);
 
-  useEffect(() => {
-    if (authUser && _.isEmpty(cookies)) {
-      setCookie('auth_token', authUser)
-    }
-  }, [authUser])
+  // useEffect(() => {
+  //   if (authUser && _.isEmpty(cookies)) {
+  //     setCookie('auth_token', authUser)
+  //   }
+  // }, [authUser])
 
   return (
     <Context.Provider
