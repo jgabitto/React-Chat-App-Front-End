@@ -99,9 +99,9 @@ const Signup = () => {
 
   return (
     <StyledWrapSignUp>
-      <header class="masthead">
-        <div class="container d-flex h-100 align-items-center">
-          <div class="mx-auto text-center">
+      <header className="masthead">
+        <div className="container d-flex h-100 align-items-center">
+          <div className="mx-auto text-center">
             <h1>Sign Up</h1>
             <Form onSubmit={onSubmit}>
               <Form.Group controlId="formBasicEmail">

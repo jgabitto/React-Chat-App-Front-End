@@ -11,7 +11,7 @@ export const StyledWrapLanding = styled.div`
   height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  background: url(${computerPic});
+  background: black url(${computerPic});
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -63,7 +63,7 @@ label {
   height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  background: url(${signinPic});
+  background: black url(${signinPic});
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -115,7 +115,7 @@ label {
   height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  background: url(${signupPic});
+  background: black url(${signupPic});
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
