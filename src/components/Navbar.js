@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import styled from 'styled-components';
 
 import * as ROUTES from '../constants/routes';
+import LogOut from './LogOut';
 import AuthContext from '../contexts/AuthContext';
 import LocationContext from '../contexts/LocationContext';
 import { StyledNavbar } from './styles/styles';
@@ -14,8 +15,6 @@ const NavbarComponent = () => {
   const [scroll, setScroll] = useState(false);
   const [authUser, setAuthUser] = useContext(AuthContext);
   const [chatLocation, setChatLocation] = useContext(LocationContext);
-
-  console.log(chatLocation)
 
   const NavigationAuth = () => {
     return (
@@ -28,6 +27,7 @@ const NavbarComponent = () => {
           <Nav className="ml-auto">
             {/* <Nav.Link as={Link} to={ROUTES.HOME}>Home</Nav.Link> */}
             <Nav.Link as={Link} to={ROUTES.JOIN_CHAT}>Chatroom</Nav.Link>
+            <LogOut />
             {/* <Nav.Link as={Link} to={ROUTES.ACCOUNT}>Account</Nav.Link> */}
             {/* <SignOut /> */}
           </Nav>
