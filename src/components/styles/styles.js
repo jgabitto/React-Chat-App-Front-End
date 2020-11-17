@@ -168,6 +168,10 @@ export const StyledNavbar = styled.div`
     font-size: 1.3rem;
   }
 
+  .dark {
+    background-color: #333744;
+  }
+
   .brand {
     font-size: 3rem;
   }

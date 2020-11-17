@@ -59,11 +59,11 @@ const Signup = () => {
     email === '' ||
     username === '';
 
-  useEffect(() => {
-    if (!_.isEmpty(logIn)) {
-      setAuthUser(logIn);
-    }
-  }, [logIn])
+  // useEffect(() => {
+  //   if (!_.isEmpty(logIn)) {
+  //     setAuthUser(logIn);
+  //   }
+  // }, [logIn])
 
   const onSubmit = async (event) => {
     // event.persist();
@@ -76,17 +76,19 @@ const Signup = () => {
     }
 
     try {
-      const message = await fetch(process.env.REACT_APP_SIGN_UP, {
+      const res = await fetch(process.env.REACT_APP_SIGN_UP, {
         method: 'POST',
         mode: 'cors',
         credentials: 'include',
         body: JSON.stringify(form),
         headers: { 'Content-Type': 'application/json' }
       });
-      const token = message.headers.get('Authorization');
 
-      // setAuthUser(message.headers.get('Authorization'))
-      setLogIn(token)
+      const token = res.headers.get('Authorization');
+
+      setAuthUser(token);
+      // setLogIn(token)
+      if (res.status !== 200) dispatch({ type: ACTIONS.SET_ERROR, payload: { field: ACTIONS.SET_ERROR, value: 'User already exists with that email' } });
 
     } catch (e) {
       console.log(e.message)
@@ -123,6 +125,8 @@ const Signup = () => {
               <button className="btn btn-outline-light" disabled={isInvalid} type="submit">
                 Submit
               </button>
+              <Form.Label>{error ? error : null}</Form.Label>
+
             </Form>
           </div>
         </div>

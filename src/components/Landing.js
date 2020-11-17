@@ -20,7 +20,7 @@ const Landing = () => {
           </div>
             : <div className="mx-auto text-center">
               <h1 className="mx-auto my-0">Web Chat App</h1>
-              <h2 className="mx-auto mt-2 mb-5">Create a chat room or join an exisiting one. Register to start chatting today!</h2>
+              <h2 className="mx-auto mt-2 mb-5">Create a chat room or join an exisiting one.</h2>
             </div>}
         </div>
       </header>

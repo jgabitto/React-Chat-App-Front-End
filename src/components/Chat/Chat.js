@@ -1,10 +1,11 @@
-import React, { useState, useReducer, useEffect, useRef } from 'react';
+import React, { useState, useReducer, useEffect, useRef, useContext } from 'react';
 import Moment from 'react-moment';
 import * as Scroll from 'react-scroll';
 import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 
 import socket from '../../utils/socketConnection';
 import ErrorModal from './ErrorModal';
+import UserContext from '../../contexts/UserContext';
 
 // const autoscroll = (containerRef, messageRef) => {
 //   const lastMessage = messageRef.current;
@@ -57,7 +58,10 @@ const Chat = ({ history, match }) => {
   const textInput = React.createRef();
   const messagesContainerRef = useRef(null);
   const lastMessageRef = React.createRef();
+  const [chatUser, setChatUser] = useContext(UserContext);
   const { params: { username, room } } = match;
+
+  console.log(chatUser)
 
   const scrollToWithContainer = () => {
 
@@ -115,6 +119,15 @@ const Chat = ({ history, match }) => {
   }, [])
   // When user joins chat room
   useEffect(() => {
+    let options;
+    console.log('chatUser', chatUser)
+    // if (chatUser) {
+    //   options = { status: 'user exists', username: chatUser.username, room: chatUser.room };
+    // } else {
+    //   options = { username, room };
+    //   console.log('options', options)
+    // }
+    // setChatUser({ username, room });
     socket.emit('join', { username, room }, (error) => {
       if (error) {
         alert(error);
@@ -231,7 +244,7 @@ const Chat = ({ history, match }) => {
             <form onSubmit={onSubmit}>
               <input type="text" name="message" value={message.text} onChange={onChange} ref={textInput} placeholder="Message" autoComplete="off" required />
               <button onClick={focus} disabled={disabledButton ? 'disabled' : null}>Send</button>
-              <button className="ml-2" onClick={saveChat}>Save</button>
+              {/* <button className="ml-2" onClick={saveChat}>Save</button> */}
             </form>
           </div>
         </div>

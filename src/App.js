@@ -17,6 +17,7 @@ import NavbarComponent from './components/Navbar';
 import history from './history';
 import { AuthStore } from './contexts/AuthContext';
 import { LocationStore } from './contexts/LocationContext';
+import { ChatStore } from './contexts/UserContext';
 import GlobalStyle from './components/styles/globalStyles';
 
 
@@ -26,18 +27,20 @@ const App = () => {
       <CookiesProvider>
         <LocationStore>
           <AuthStore>
-            <GlobalStyle />
-            <NavbarComponent />
-            <Switch>
-              <Route path={ROUTES.LANDING} exact component={Landing} />
-              <PublicRoute path={ROUTES.SIGN_IN} exact component={Signin} />
-              <PublicRoute path={ROUTES.SIGN_UP} exact component={Signup} />
-              {/* <PrivateRoute path={ROUTES.HOME} exact component={Home} />
+            <ChatStore>
+              <GlobalStyle />
+              <NavbarComponent />
+              <Switch>
+                <Route path={ROUTES.LANDING} exact component={Landing} />
+                <PublicRoute path={ROUTES.SIGN_IN} exact component={Signin} />
+                <PublicRoute path={ROUTES.SIGN_UP} exact component={Signup} />
+                {/* <PrivateRoute path={ROUTES.HOME} exact component={Home} />
             <PrivateRoute path={ROUTES.ACCOUNT} exact component={Account} /> */}
-              <PrivateRoute path={ROUTES.JOIN_CHAT} exact component={JoinChat} />
-              <PrivateRoute path={ROUTES.CHAT} exact component={Chat} />
-              <Route path="*" render={() => <Redirect to="/" />} />
-            </Switch>
+                <PrivateRoute path={ROUTES.JOIN_CHAT} exact component={JoinChat} />
+                <PrivateRoute path={ROUTES.CHAT} exact component={Chat} />
+                <Route path="*" render={() => <Redirect to="/" />} />
+              </Switch>
+            </ChatStore>
           </AuthStore>
         </LocationStore>
       </CookiesProvider>

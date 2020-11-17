@@ -1,6 +1,8 @@
 import React, { useReducer, useEffect, useContext } from 'react';
+import _ from 'lodash';
 
 import LocationContext from '../../contexts/LocationContext';
+import UserContext from '../../contexts/UserContext';
 
 const INITIAL_STATE = {
   username: '',
@@ -9,7 +11,8 @@ const INITIAL_STATE = {
 
 const ACTIONS = {
   SET_USERNAME: 'username',
-  SET_ROOM: 'room'
+  SET_ROOM: 'room',
+  SET_ALL: 'all'
 }
 
 const reducer = (state, action) => {
@@ -18,7 +21,10 @@ const reducer = (state, action) => {
       return { ...state, [action.payload.field]: action.payload.value };
     case ACTIONS.SET_ROOM:
       return { ...state, [action.payload.field]: action.payload.value };
-
+    case ACTIONS.SET_ALL:
+      return { ...action.payload.value };
+    default:
+      return new Error();
   }
 }
 
@@ -26,6 +32,12 @@ const JoinChat = ({ history, match }) => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
   const { username, room } = state;
   const [chatLocation, setChatLocation] = useContext(LocationContext);
+  const [chatUser, setChatUser] = useContext(UserContext);
+
+  // useEffect(() => {
+  //   if (!_.isEmpty(state)) dispatch({ type: ACTIONS.SET_ALL, payload: { username: null, room: null } });
+
+  // }, [])
 
   const onChange = (e) => {
     dispatch({ type: e.target.name, payload: { field: e.target.name, value: e.target.value } })
@@ -38,11 +50,10 @@ const JoinChat = ({ history, match }) => {
     const form = {
       username,
       room
-    }
+    };
 
-    console.log(history)
-    setChatLocation(history.location)
-    history.push(`/chat/username=${username}&room=${room}`)
+    setChatLocation(history.location);
+    history.push(`/chat/username=${username}&room=${room}`);
   }
 
   return (

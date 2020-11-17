@@ -9,11 +9,6 @@ import AuthContext from '../contexts/AuthContext';
 import { StyledWrapSignIn } from './styles/styles';
 
 
-// const StyledWrap = styled.div`
-//     margin-top: 8rem;
-
-// `;
-
 const INITIAL_STATE = {
   email: '',
   password: '',
@@ -45,11 +40,11 @@ const SignIn = ({ firebase, history }) => {
 
   const isInvalid = password === '' || email === '';
 
-  useEffect(() => {
-    if (!_.isEmpty(logIn)) {
-      setAuthUser(logIn);
-    }
-  }, [logIn])
+  // useEffect(() => {
+  //   if (!_.isEmpty(logIn)) {
+  //     setAuthUser(logIn);
+  //   }
+  // }, [logIn])
 
   const onSubmit = async (event) => {
     // event.persist();
@@ -67,10 +62,13 @@ const SignIn = ({ firebase, history }) => {
       body: JSON.stringify(form),
       headers: { 'Content-Type': 'application/json' }
     })
-
+    const { message } = await res.json();
+    console.log(message)
     const token = res.headers.get('Authorization');
+    setAuthUser(token);
+    // setLogIn(token);
 
-    setLogIn(token)
+    if (res.status !== 200) dispatch({ type: ACTIONS.SET_ERROR, payload: { field: ACTIONS.SET_ERROR, value: message } });
 
   }
 
@@ -78,31 +76,6 @@ const SignIn = ({ firebase, history }) => {
     dispatch({ type: e.target.name, payload: { field: e.target.name, value: e.target.value } })
   }
 
-  // return (
-  //   <StyledWrap className="container">
-  //     <Jumbotron>
-  //       <h1>Sign In</h1>
-  //       <Form onSubmit={onSubmit}>
-  //         <Form.Group controlId="formBasicEmail">
-  //           <Form.Label>Email address</Form.Label>
-  //           <input className="form-control" name="email" value={email} onChange={onChange} type="email" placeholder="Enter email" />
-  //           <Form.Text className="text-muted">
-  //             We'll never share your email with anyone else.
-  //         </Form.Text>
-  //         </Form.Group>
-
-  //         <Form.Group controlId="formBasicPassword">
-  //           <Form.Label>Password</Form.Label>
-  //           <input className="form-control" name="password" value={password} onChange={onChange} type="password" placeholder="Password" />
-  //         </Form.Group>
-  //         <Button variant="primary" disabled={isInvalid} type="submit">
-  //           Submit
-  //     </Button>
-  //         {error && <p>{error.message}</p>}
-  //       </Form>
-  //     </Jumbotron>
-  //   </StyledWrap>
-  // )
   return (
     <StyledWrapSignIn>
       <header className="masthead">
@@ -113,6 +86,7 @@ const SignIn = ({ firebase, history }) => {
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <input className="form-control" name="email" value={email} onChange={onChange} type="email" placeholder="Enter email" autoComplete="off" />
+                <Form.Label>{error ? error : null}</Form.Label>
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
