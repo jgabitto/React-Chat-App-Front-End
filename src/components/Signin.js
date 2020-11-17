@@ -86,7 +86,6 @@ const SignIn = ({ firebase, history }) => {
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <input className="form-control" name="email" value={email} onChange={onChange} type="email" placeholder="Enter email" autoComplete="off" />
-                <Form.Label>{error ? error : null}</Form.Label>
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
@@ -96,7 +95,7 @@ const SignIn = ({ firebase, history }) => {
               <button className="btn btn-outline-light" disabled={isInvalid} type="submit">
                 Submit
               </button>
-              {error && <p>{error.message}</p>}
+              <Form.Label>{error ? error : null}</Form.Label>
             </Form>
           </div>
         </div>
