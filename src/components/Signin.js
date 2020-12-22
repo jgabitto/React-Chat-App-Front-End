@@ -65,6 +65,7 @@ const SignIn = ({ firebase, history }) => {
     const { message } = await res.json();
     console.log(message)
     const token = res.headers.get('Authorization');
+    console.log(token)
     setAuthUser(token);
     // setLogIn(token);
 
