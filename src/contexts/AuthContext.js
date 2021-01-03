@@ -24,12 +24,16 @@ const Context = React.createContext();
 // }
 
 export const AuthStore = ({ children }) => {
-  const [cookies, setCookie] = useCookies(['auth_token']);
+  const [cookies, setCookie, removeCookie] = useCookies(['auth_token']);
   const [authUser, setAuthUser] = useState(cookies['auth_token']);
 
   useEffect(() => {
     if (authUser && _.isEmpty(cookies)) {
       setCookie('auth_token', authUser)
+    }
+
+    if (!authUser && !_.isEmpty(cookies)) {
+      removeCookie('auth_token');
     }
   }, [authUser])
 
